@@ -1,10 +1,10 @@
 Drupal on OpenShift
 ===================
 
-This Git repository helps you get up and running quickly w/ a Drupal
+This Git repository helps you get up and running quickly w/ a Drupal 7.x
 installation on OpenShift. It defaults to using MySQL, so when creating
 the application you'll want to select and install both MySQL and Cron
-(for running scheduled tasks). 
+(for running scheduled tasks).
 
     rhc app create drupal php-5.3 mysql-5.1 cron
 
@@ -97,4 +97,3 @@ version of Drupal from your data directory every time you push.  The
 runtime directory in your application is automatically recreated each
 push, so anything persistent must be in your Git repo or saved and
 retrieved from the data directory.
-
