@@ -8,6 +8,7 @@ set -e
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
+DRUSH=${OPENSHIFT_REPO_DIR}vendor/bin/drush
 DRUPAL_SITE_DIR=${OPENSHIFT_DATA_DIR}sites
 DRUPAL_PRIVATE_DIR=${OPENSHIFT_DATA_DIR}private
 DRUPAL_SETTINGS=${DRUPAL_SITE_DIR}/default/settings.php
@@ -31,7 +32,7 @@ then
 
   #
   # Automatic installation only works with mysql.
-  # 
+  #
   if [ -z "$OPENSHIFT_MYSQL_DB_HOST" ]
   then
       echo 1>&2
@@ -57,7 +58,7 @@ then
   echo
   echo "Creating a new Drupal site at ${DRUPAL_SITE_DIR}/default"
   echo
-  if ! drush site-install standard --site-name=${OPENSHIFT_APP_NAME} --account-pass=$admin_pwd --db-url=mysql://$OPENSHIFT_MYSQL_DB_USERNAME:$OPENSHIFT_MYSQL_DB_PASSWORD@$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/$OPENSHIFT_APP_NAME --yes
+  if ! $DRUSH site-install standard --site-name=${OPENSHIFT_APP_NAME} --account-pass=$admin_pwd --db-url=mysql://$OPENSHIFT_MYSQL_DB_USERNAME:$OPENSHIFT_MYSQL_DB_PASSWORD@$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/$OPENSHIFT_APP_NAME --yes
   then
     echo "Unable to configure your Drupal installation"
     echo
@@ -83,9 +84,9 @@ if (array_key_exists('OPENSHIFT_APP_NAME', $_SERVER)) {
   $src = $_ENV;
 }
 $databases = array (
-  'default' => 
+  'default' =>
   array (
-    'default' => 
+    'default' =>
     array (
       'database' => $src['OPENSHIFT_APP_NAME'],
       'username' => $src['OPENSHIFT_MYSQL_DB_USERNAME'],
