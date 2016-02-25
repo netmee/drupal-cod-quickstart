@@ -1,9 +1,9 @@
---- .htaccess.old 2013-11-20 12:45:59.000000000 -0800
-+++ .htaccess 2013-12-09 20:40:29.596071345 -0800
+--- .htaccess.old	2016-02-25 16:31:55.629594277 +0200
++++ .htaccess	2016-02-25 16:32:12.320563540 +0200
 @@ -4,7 +4,12 @@
  
  # Protect files and directories from prying eyes.
- <FilesMatch "\.(engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|tpl(\.php)?|xtmpl)(~|\.sw[op]|\.bak|\.orig|\.save)?$|^(\..*|Entries.*|Repository|Root|Tag|Template)$|^#.*#$|\.php(~|\.sw[op]|\.bak|\.orig\.save)$">
+ <FilesMatch "\.(engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|tpl(\.php)?|xtmpl)(~|\.sw[op]|\.bak|\.orig|\.save)?$|^(\..*|Entries.*|Repository|Root|Tag|Template|composer\.(json|lock))$|^#.*#$|\.php(~|\.sw[op]|\.bak|\.orig\.save)$">
 +<IfVersion < 2.4>
    Order allow,deny
 +</IfVersion>
