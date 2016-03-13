@@ -6,7 +6,7 @@ installation on OpenShift. It defaults to using PostgreSQL, so when creating
 the application you'll want to select and install both PostgreSQL and Cron
 (for running scheduled tasks).
 
-    rhc app create drupal php-5.3 postgresql-9.2 cron
+    rhc app create drupal-cod php-5.4 postgresql-9.2 cron
 
 The first time you push changes to OpenShift, the build script
 will download the latest stable version of Drupal COD distribution (currently 7.x) and
@@ -58,12 +58,12 @@ Running on OpenShift
 
 Create an account at https://www.openshift.com
 
-Create a php-5.3 application with PostgreSQL and Cron support.
+Create a php-5.4 application with PostgreSQL and Cron support.
 
-    rhc app create drupal php-5.3 postgresql-9.2 cron --from-code=git://github.com/openshift/drupal-quickstart.git
+    rhc app create drupal-cod php-5.4 postgresql-9.2 cron --from-code=git://github.com/netmee/drupal-cod-quickstart
 
 That's it, you can now checkout your application at:
-    http://drupal-$yournamespace.rhcloud.com
+    http://drupal-cod-$yournamespace.rhcloud.com
 
 The default user is 'admin' and the password should be printed out to console
 after deployment. Please change the default password after first login.
