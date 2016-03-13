@@ -1,17 +1,17 @@
-Drupal on OpenShift
+Drupal COD distribution on OpenShift
 ===================
 
-This Git repository helps you get up and running quickly w/ a Drupal 7.x
-installation on OpenShift. It defaults to using MySQL, so when creating
-the application you'll want to select and install both MySQL and Cron
+This Git repository helps you get up and running quickly w/ a Drupal 7.x COD distribution
+installation on OpenShift. It defaults to using PostgreSQL, so when creating
+the application you'll want to select and install both PostgreSQL and Cron
 (for running scheduled tasks).
 
-    rhc app create drupal php-5.3 mysql-5.1 cron
+    rhc app create drupal php-5.3 postgresql-9.2 cron
 
 The first time you push changes to OpenShift, the build script
-will download the latest stable version of Drupal (currently 7.x) and
+will download the latest stable version of Drupal COD distribution (currently 7.x) and
 install it into the 'downloads' data directory.  It will then create and
-deploy a default profile for your application, using MySQL into your
+deploy a default profile for your application, using PostgreSQL into your
 'sites' directory. Any new modules you add or files uploaded to the site
 will be placed under this directory. If you want to reconfigure Drupal
 from a clean state, delete the 'sites' directory (you may need to add
@@ -30,7 +30,7 @@ properly.  If you'd like to make the app scalable, you'll need to:
    commit those changes to the Git repo
 3. Use a background task to copy file contents from gear to gear
 
-All of the scripts used to deploy and configure Drupal are located in
+All of the scripts used to deploy and configure Drupal COD distribution are located in
 the [build](.openshift/action_hooks/build) and [deploy](.openshift/action_hooks/deploy) hooks.
 
 Using Drush
@@ -58,9 +58,9 @@ Running on OpenShift
 
 Create an account at https://www.openshift.com
 
-Create a php-5.3 application with MySQL and Cron support.
+Create a php-5.3 application with PostgreSQL and Cron support.
 
-    rhc app create drupal php-5.3 mysql-5.1 cron --from-code=git://github.com/openshift/drupal-quickstart.git
+    rhc app create drupal php-5.3 postgresql-9.2 cron --from-code=git://github.com/openshift/drupal-quickstart.git
 
 That's it, you can now checkout your application at:
     http://drupal-$yournamespace.rhcloud.com

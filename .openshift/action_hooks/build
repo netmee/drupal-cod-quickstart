@@ -35,13 +35,13 @@ if [ ! -d "${OPENSHIFT_DATA_DIR}downloads/current" ]
 then
   mkdir -p ${OPENSHIFT_TMP_DIR}drupal
 
-  echo "Download and install the latest stable version of Drupal"
+  echo "Download and install the latest stable version of COD distribution"
   echo
 
   mkdir -p ${OPENSHIFT_DATA_DIR}downloads
-  if ! $DRUSH dl drupal --destination=${OPENSHIFT_DATA_DIR}downloads --yes --default-major=7
+  if ! $DRUSH dl cod --destination=${OPENSHIFT_DATA_DIR}downloads --default-major=7
   then
-    echo "ERROR: Unable download and install Drupal."
+    echo "ERROR: Unable download and install COD distribution."
     exit 7
   fi
 
