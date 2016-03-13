@@ -39,7 +39,7 @@ then
   echo
 
   mkdir -p ${OPENSHIFT_DATA_DIR}downloads
-  if ! $DRUSH dl cod --destination=${OPENSHIFT_DATA_DIR}downloads --default-major=7
+  if ! $DRUSH dl cod --destination=${OPENSHIFT_DATA_DIR}downloads --yes --default-major=7
   then
     echo "ERROR: Unable download and install COD distribution."
     exit 7
